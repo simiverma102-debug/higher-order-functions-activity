@@ -11,7 +11,16 @@ WORDS = ["jumps", "laziest", "brown", "a", "quick", "fox", "the", "dog", "over"]
 # parameter on it. This will be very similar to the min_function_custom
 # developed in the Learn reading.
 def my_max(collection, key):
-    pass
+    max_len = collection[0]
+    for i in collection:
+        if key(i) > key(max_len):
+            max_len = i
+
+    return max_len        
+    
+
+    
+    #return max(collection, key = len)
 
 # Implement a custom version of filter, called my_filter
 # my_filter takes a function (should_keep) which it will call on every item in
@@ -22,7 +31,13 @@ def my_max(collection, key):
 def my_filter(should_keep, collection):
     # if you've encountered list comprehensions, this would be a
     # great place to use one
-    pass
+    new_list =[]
+    for item in collection:
+        if should_keep(item):
+            new_list.append(item)
+    return new_list
+
+    
 
 # Implement a custom version of map, called my_map
 # my_map takes a function (transform) which it will call on every item in the
@@ -33,7 +48,12 @@ def my_filter(should_keep, collection):
 def my_map(transform, collection):
     # if you've encountered list comprehensions, this would be a
     # great place to use one
-    pass
+    new_list =[]
+    for word in collection:
+        new_list.append(transform(word))
+    return new_list
+
+    
 
 #################################################
 # NO CODE BELOW THIS POINT NEEDS TO BE MODIFIED #
